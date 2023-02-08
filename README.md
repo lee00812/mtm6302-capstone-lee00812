@@ -3,7 +3,7 @@ Capstone Project - Pokedex
 Name: Gloria Lee
 Student No.: 041050740
 
-Design decision 
+Design decisions 
 
 For a better user experience, all elements are displayed on the screen in a horizontal approach from the desktop perspective. Users could view the first 20 pokemon on the right grid. By clicking the load more button, the next 20 pokemon will be loaded on the same page. Once the user has selected the pokemon, specific information about that pokemon will appear on the top left grid with an image and description. Users could indicate a pokemon as caught by clicking the caught button, that pokemon will appear under the caught list. The release button allows the user to release a pokemon from the caught list to the uncaught list. 
 
