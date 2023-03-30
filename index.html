@@ -40,7 +40,7 @@
                 
                         </div>
                         <div class="display-text">
-                            <h3>Name</h3>
+                            <h3 class="pt-4 pb-2">Name</h3>
                             <p>Lorem ipsum dolor sit amet,
                                     consectetur adipiscing elit. Fusce
                                     libero libero, viverra scelerisque est
@@ -57,74 +57,19 @@
                 </div>
 
                 <div class="bottom">
-                    <h3>Caught</h3>
+                    <h3 class="pt-4 pb-2">Caught</h3>
                 
                     <div class="container text-center py-1">
-                        <div class="row gx-2">
-                          <div class="col">
-                            <div class="bg-light py-4">
-                                FPO
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="bg-light py-4">
-                                FPO
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="bg-light py-4">
-                                FPO
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="bg-light py-4">
-                                FPO
-                            </div>
-                          </div>
-                        </div>
+
+                        <div class="caught" id="caught"></div>
+
+                        <div class="caughtname" id="caughtname"></div>
+
+                        <div class="btn px-2" id="release">Release</div>
+
                     </div>
                 
-                    <div class="container text-center pb-2">
-                        <div class="row gx-2">
-                          <div class="col">
-                            Name
-                          </div>
-                          <div class="col">
-                            Name
-                          </div>
-                          <div class="col">
-                            Name
-                          </div>
-                          <div class="col">
-                            Name
-                          </div>
-                        </div>
-                    </div>
-                
-                    <div class="release-button container text-center pb-2">
-                        <div class="row gx-2">
-                          <div class="col px-0">
-                            <div class="btn px-2">
-                                Release
-                            </div>
-                          </div>
-                          <div class="col px-0">
-                            <div class="btn px-2">
-                                Release
-                            </div>
-                          </div>
-                          <div class="col px-0">
-                            <div class="btn px-2">
-                                Release
-                            </div>
-                          </div>
-                          <div class="col px-0">
-                            <div class="btn px-2">
-                                Release
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                    
                 </div>
             
 
@@ -134,87 +79,25 @@
             <!-- **** lower/ right container **** --> 
             <!-- **** this part will be repeated in javascript to display the first 20 pokemons **** --> 
             <div class="pokedex pokemon">
-                <h3>Uncaught</h3>
+                <h3 class="pt-4 pb-2">Uncaught</h3>
                 
-                <div class="container text-center py-2">
-                    <div class="row gx-2">
-                      <div class="col">
-                        <div class="bg-light py-4">
-                            FPO
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="bg-light py-4">
-                            FPO
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="bg-light py-4">
-                            FPO
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="bg-light py-4">
-                            FPO
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            
-                <div class="container text-center pb-2">
-                    <div class="row gx-2">
-                      <div class="col">
-                        Name
-                      </div>
-                      <div class="col">
-                        Name
-                      </div>
-                      <div class="col">
-                        Name
-                      </div>
-                      <div class="col">
-                        Name
-                      </div>
-                    </div>
-                </div>
-            
-                <div class="container text-center pb-2">
-                    <div class="row gx-2">
-                      <div class="col">
-                        <div class="btn">
-                            Caught
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="btn">
-                            Caught
-                        </div>
-                      </div><div class="col">
-                        <div class="btn">
-                            Caught
-                        </div>
-                      </div><div class="col">
-                        <div class="btn">
-                            Caught
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                <div class="container">
 
-                <div class="col text-center pt-5">
-                    <div class="btn">
-                        Load more..
-                    </div>
+                    <div id="list"></div>
+                
+                    <div class="btn" id="btn">Caught</div>
+                    
+                    <div class="btn" id="load-more">Load more..</div> 
                 </div>
-
            </div>  
         </div>   
     </main>
 
     <!-- **** footer **** --> 
-    <footer>
+    <!-- <footer>
         <div class="footer"><p>© COPYRIGHT GLORIA MC LEE, 2023</p></div>
-    </footer>
-    
+    </footer> -->
+
+    <script src="script.js"></script>
 </body>
 </html>
