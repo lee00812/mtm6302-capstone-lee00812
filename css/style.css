@@ -1,7 +1,7 @@
 body {
     margin: auto;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     background-image: url(/img/mountain.jpg);
     background-size: cover;
     background-color: #D7DAD1;
@@ -20,6 +20,7 @@ header {
 
 h1 {
     margin: auto;
+    font-weight: bold;
 }
 
 .space {
@@ -48,7 +49,7 @@ h2 {
 
 .top {
     width: 98%;
-    background-color: #B8DCF9;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     border-right: 30px solid #FF1200;
@@ -69,7 +70,7 @@ h2 {
 }
 
 .display-image img{
-    width: 65%;
+    width: 55%;
     margin-top: 20px;
 }
 
@@ -81,7 +82,7 @@ h2 {
 .middle {
     width: 60%;
     height: 15px;
-    background-color: #89C66B;
+    
     margin: auto;
     border-right: 15px solid #6A9D52;
 }
@@ -109,38 +110,54 @@ h3 {
     width: 100%;
 }
 
-.btn {
-    margin: auto;
-}
-
-.btn {
-    background-color: #5F5E63;
+.btn,
+.btn:focus {
+    background-color: #F85874;
     color: white;
     border-radius: 30px;
+    width: 150px;
+    font-size: 1.5rem;
+}
+
+.btn:hover {
+    background-color: #FF1200;
+    color: white;
+    transition-duration: 0.5s
+}
+
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 25px;
+    margin-bottom: 30px;
 }
 
 .pokemon {
     width: 100%;
-    background-color: #FCE372;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
     border-radius: 40px;
     margin: auto;  
 }
 
-.container {
+.panel {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 #list {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 5px;
 }
 
 .pokecontainer img {
     display: flex;
     width: 100%;
 }
+    
+.pokecontainer img:hover { 
+    transform: scale(1.2); 
+    }
 
 .pokecontainer {
     align-self: flex-end;
@@ -152,23 +169,51 @@ h3 {
     text-transform: capitalize;
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 980px) {
     .wrapper {
         display: grid;
         grid-template-columns: 50% 50%;
     }
+    #list {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-gap: 5px;
+    }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1320px) {
     .wrapper {
         padding-left: 10%;
         padding-right: 10%;
     }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1500px) {
     .wrapper{
         padding-left: 15%;
-        padding-right: 15%;
+        padding-right: 20%;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    #list {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 5px;
+    }
+
+    .btn {
+    width: 150px;
+    font-size: 1.25rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+
+    .pokecontainer {
+        max-width: 80%;
+    }
+
+    .pokecontainer li {
+        font-size: 1rem;
     }
 }
