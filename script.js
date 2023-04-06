@@ -23,11 +23,12 @@ async function fetchData(url) {
     for (const pokemon of pokemons) {
   
       const $img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + parseUrl(pokemon.url) + '.png'
+      const $id = parseUrl(pokemon.url)
   
       htmlTemplate.push(
         `
-        <div class="pokecontainer" id="pokemon">
-        <img src="${$img}"><li>${pokemon.name}</li>
+        <div class="pokecontainer">
+        <img src="${$img}" data-id="${$id}" data-url="${$img}" ><li>${pokemon.name}</li>
         </div>
         `
         );
@@ -66,24 +67,27 @@ async function fetchData(url) {
 const $displayPokemon = document.querySelectorAll('#pokemon')
 const $screen = document.getElementById('display')
 
-$displayPokemon.forEach(function (pokemon) {
-    pokemon.addEventListener('click', function () {
-        $screen.innerHTML = 
-        `
-        <div class="display-image">
-        <a></a>  
-        </div>
-        <div class="display-text">
-            <h3 class="pt-4 pb-2">Name</h3>
-            <p>abilities</p>
-        </div>
-        `
-    })
-})
+document.getElementById('list').addEventListener('click', function (e) {
+  if (e.target.tagName.toLowerCase() === 'img') {
+
+    const imgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + e.target.dataset.id + '.png'
+
+    $screen.innerHTML = `
+      <div class="display-image">
+        <img src="${imgUrl}" alt="Pokemon">
+      </div>
+      <div class="display-text">
+        <h3 class="pt-4 pb-2">testing testing</h3>
+      </div>
+    `;
+  }
+}, false);
+
+
 
 
 // const $displayPokemon = document.getElementById('pokemon')
-// const $screen = document.getElementById('screen')
+// const $screen = document.getElementById('display')
 
 // for (let i = 0; i < 20; i++) {
 //     $displayPokemon[i].addEventListener('click', function () {

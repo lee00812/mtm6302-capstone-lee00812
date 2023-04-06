@@ -58,19 +58,19 @@ h2 {
     margin: auto;  
 }
 
-
 .display {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.display-image{
+    display: flex;
+    justify-content: center;
+}
 
-.display-image {
-    width: 85%;
-    height: 150px;
-    background-color: white;
+.display-image img{
+    width: 65%;
     margin-top: 20px;
-    align-self: center;
 }
 
 .display-text {
