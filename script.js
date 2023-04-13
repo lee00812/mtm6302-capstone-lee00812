@@ -1,7 +1,14 @@
+
 //display 20 pokemons
 const $users = document.getElementById('list')
 let $next = ''
 let $previous = ''
+
+// parseURL
+// Will return the pokemon's id from the provided url
+function parseUrl (url) {
+  return url.substring(url.substring(0, url.length - 2).lastIndexOf('/') + 1, url.length - 1)
+}
 
 // pokemon API
 async function fetchData(url) {
@@ -39,12 +46,16 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
 
   //fetch abilities data
 
+  async function fetchAbilityName() {
 
-  // parseURL
-  // Will return the pokemon's id from the provided url
-  function parseUrl (url) {
-    return url.substring(url.substring(0, url.length - 2).lastIndexOf('/') + 1, url.length - 1)
+    const response = await fetch(url);
+    const json = await response.json();
+    const abilityName = json.abilities.ability.name;
   }
+
+  fetchAbilityName("https://pokeapi.co/api/v2/pokemon/" + parseUrl(pokemon.url));
+
+  function fetchAbilityName()
 
   //add event listner
   
@@ -53,7 +64,6 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
 // using an anonymous function
     nextButton.addEventListener('click', function () {
         fetchData($next)
-        // console.log(`The button was clicked`)
     })
 
     const previousButton = document.getElementById('previous')

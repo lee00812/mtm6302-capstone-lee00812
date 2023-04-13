@@ -64,13 +64,14 @@ h2 {
     flex-direction: column;
     justify-content: center;
 }
+
 .display-image{
     display: flex;
     justify-content: center;
 }
 
 .display-image img{
-    width: 55%;
+    width: 30%;
     margin-top: 20px;
 }
 
@@ -81,10 +82,10 @@ h2 {
 
 .middle {
     width: 60%;
+    background-color: #5F5E63;
     height: 15px;
-    
     margin: auto;
-    border-right: 15px solid #6A9D52;
+    border-right: 15px solid #262626;
 }
 
 .bottom {
@@ -146,17 +147,19 @@ button {
 
 #list {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-gap: 5px;
 }
 
 .pokecontainer img {
     display: flex;
     width: 100%;
+    cursor: pointer;
 }
     
 .pokecontainer img:hover { 
     transform: scale(1.2); 
+    transition: 0.5s;
     }
 
 .pokecontainer {
@@ -176,15 +179,21 @@ button {
     }
     #list {
         display: grid;
-        grid-template-columns: auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto;
         grid-gap: 5px;
     }
 }
 
-@media only screen and (min-width: 1320px) {
+@media only screen and (min-width: 1688px) {
     .wrapper {
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    #list {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-gap: 5px;
     }
 }
 
