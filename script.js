@@ -1,4 +1,3 @@
-
 //display 20 pokemons
 const $users = document.getElementById('list')
 let $next = ''
@@ -44,19 +43,6 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
     $users.innerHTML = htmlTemplate.join('');
   }
 
-  //fetch abilities data
-
-  async function fetchAbilityName() {
-
-    const response = await fetch(url);
-    const json = await response.json();
-    const abilityName = json.abilities.ability.name;
-  }
-
-  fetchAbilityName("https://pokeapi.co/api/v2/pokemon/" + parseUrl(pokemon.url));
-
-  function fetchAbilityName()
-
   //add event listner
   
   const nextButton = document.getElementById('next')
@@ -75,30 +61,53 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
     })
 
 //display pokemon's abilities
+
 //adds interactive scripts
 
 const $displayPokemon = document.querySelectorAll('#pokemon')
 const $screen = document.getElementById('display')
 
+//fetch abilities data
+async function fetchAbilityName(id, name) {
+
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const json = await response.json();
+  const imgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + id + '.png'
+  const abilities = json.abilities
+  const details = []
+
+  details.push(`
+    <div class="display-image">
+      <img src="${imgUrl}" alt="Pokemon">
+    </div>
+    <div class="display-text">
+      <h3 class="pt-4 pb-2">${name}</h3>
+      <h4>Abilities:</h4>
+      <ul>
+  `)
+
+  for(const pokemon of abilities){
+    details.push(`<li>${pokemon.ability.name}</li>`)
+  }
+
+  details.push(`
+  </ul>
+  </div>`)
+
+  $screen.innerHTML = details.join('')
+  
+}
+
+//adds interactive scripts
+
 document.getElementById('list').addEventListener('click', function (e) {
   if (e.target.tagName.toLowerCase() === 'img') {
 
-    const imgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + e.target.dataset.id + '.png'
-
     const imgName = e.target.dataset.name
+    fetchAbilityName(e.target.dataset.id, imgName)
 
-    $screen.innerHTML = `
-      <div class="display-image">
-        <img src="${imgUrl}" alt="Pokemon">
-      </div>
-      <div class="display-text">
-        <h3 class="pt-4 pb-2">${imgName}</h3>
-      </div>
-    `;
   }
 }, false);
-
-
 
 
 
