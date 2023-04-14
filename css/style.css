@@ -49,6 +49,7 @@ h2 {
 
 .top {
     width: 98%;
+    min-height: 420px;
     background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -80,6 +81,18 @@ h2 {
     align-self: center;
 }
 
+.abilities,
+.display-text ul {
+    text-align: center;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+
 .middle {
     width: 60%;
     background-color: #5F5E63;
@@ -107,7 +120,8 @@ h3 {
     padding-top: 5px;
 }
 
-.release-button {
+.release,
+.selectbutton {
     width: 100%;
 }
 
