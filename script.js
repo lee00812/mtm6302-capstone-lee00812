@@ -131,7 +131,7 @@ selectPokemon.addEventListener('click', function (e) {
       <img src="${imgUrl}" alt="Pokemon">
     </div>
     <div class="display-text">
-      <h3 class="pt-4 pb-2">${imgName}</h3>
+      <p>${imgName}</p>
     </div>
   `;
 });
