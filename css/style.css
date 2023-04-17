@@ -219,7 +219,7 @@ button {
 
     .selectedpokemon {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 5px;
     }
 }
@@ -257,6 +257,12 @@ button {
         grid-gap: 5px;
     }
 
+    .selectedpokemon {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 5px;
+    }
+
     .btn {
     width: 150px;
     font-size: 1.25rem;
@@ -272,3 +278,33 @@ button {
         font-size: 1rem;
     }
 }
+
+@media only screen and (max-width: 480px) {
+
+    .selectedpokemon {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 5px;
+        align-items: end;
+    }
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .bottom {
+        width: 100%;
+        min-height: 300px;
+        background-color: #B8DCF9;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        border-right: 10px solid #FF1200;
+        border-top: 10px solid #F85874;
+        border-left: 10px solid #F85874;
+        border-bottom: 10px solid #FF1200; 
+        margin: auto;  
+    }
+
