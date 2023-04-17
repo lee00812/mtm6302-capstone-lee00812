@@ -99,6 +99,9 @@ async function fetchAbilityName(id, name) {
 
   $screen.innerHTML = details.join('')
   
+  selectPokemon.setAttribute('data-name', name)
+  selectPokemon.setAttribute('data-poke-id', id)
+  
 }
 
 //adds interactive scripts
@@ -115,12 +118,12 @@ document.getElementById('list').addEventListener('click', function (e) {
 //event listener to the select button
 //add pokemon to the selected list
 
-const selectPokemon = document.getElementById('selectpokemon');
+const selectPokemon = document.getElementById('selectbutton');
 const selectedPokemon = document.getElementById('selectedpokemon');
 
 selectPokemon.addEventListener('click', function (e) {
   const selectedName = e.target.dataset.name;
-  const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.target.dataset.id}.png`;
+  const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.target.dataset.pokeId}.png`;
   const imgName = e.target.dataset.name;
 
   selectedPokemon.innerHTML = `
@@ -132,6 +135,26 @@ selectPokemon.addEventListener('click', function (e) {
     </div>
   `;
 });
+
+function displayPokemons(pokemons) {
+  
+  const htmlTemplate = [];
+  for (const pokemon of pokemons) {
+
+    const $img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + parseUrl(pokemon.url) + '.png'
+    const $id = parseUrl(pokemon.url)
+
+    htmlTemplate.push(
+      `
+      <div class="pokecontainer">
+      <img src="${$img}" data-id="${$id}" data-url="${$img}" data-name="${pokemon.name}"><li>${pokemon.name}</li>
+      </div>
+      `
+      );
+  }
+
+  $users.innerHTML = htmlTemplate.join('');
+}
 
 
 //release pokemon
