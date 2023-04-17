@@ -3,7 +3,7 @@ let $next = ''
 let $previous = ''
 
 // parseURL
-// Will return the pokemon's id from the provided url
+// will return the pokemon's id from the provided url
 function parseUrl (url) {
   return url.substring(url.substring(0, url.length - 2).lastIndexOf('/') + 1, url.length - 1)
 }
