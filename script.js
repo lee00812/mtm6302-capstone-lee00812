@@ -1,4 +1,3 @@
-//display 20 pokemons
 const $users = document.getElementById('list')
 let $next = ''
 let $previous = ''
@@ -17,10 +16,19 @@ async function fetchData(url) {
     $next = json.next
     $previous = json.previous
 
+    // Store the current URL in local storage
+    localStorage.setItem('pokemonUrl', url);
+
     displayPokemons(json.results);
   }
   
-fetchData('https://pokeapi.co/api/v2/pokemon/');
+// Check if there is a stored URL in local storage and fetch data from that URL if it exists
+const storedUrl = localStorage.getItem('pokemonUrl');
+if (storedUrl) {
+  fetchData(storedUrl);
+} else {
+  fetchData('https://pokeapi.co/api/v2/pokemon/');
+}
   
 //display pokemon's image and name
   function displayPokemons(pokemons) {
@@ -59,6 +67,7 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
         fetchData($previous)
         // console.log(`The button was clicked`)
     })
+
 
 //display pokemon's abilities
 //adds interactive scripts
