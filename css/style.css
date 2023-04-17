@@ -163,7 +163,13 @@ button {
     grid-gap: 5px;
 }
 
-#selectedwrapper {
+/* #selectedwrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+} */
+
+.selectedpokemon {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
@@ -177,13 +183,6 @@ button {
 
 .selectedlist img {
     max-width: 100%;
-}
-
-.selectedpokemon {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    cursor: pointer;
 }
     
 .pokecontainer img:hover { 

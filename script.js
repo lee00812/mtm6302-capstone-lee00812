@@ -116,7 +116,17 @@ document.getElementById('list').addEventListener('click', function (e) {
 
 //event listener to the select button
 //add pokemon to the selected list
+// Get the selected Pokemon array from local storage when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const selectedPokemonsString = localStorage.getItem('selectedPokemons');
+  if (selectedPokemonsString) {
+    const selectedPokemons = JSON.parse(selectedPokemonsString);
+    displaySelected(selectedPokemons);
+  }
+});
 
+// Event listener to the select button
+// Add Pokemon to the selected list
 const selectPokemon = document.getElementById('selectbutton');
 const selectedPokemon = document.getElementById('selectedpokemon');
 
@@ -125,52 +135,37 @@ selectPokemon.addEventListener('click', function (e) {
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.target.dataset.pokeId}.png`;
   const imgName = e.target.dataset.name;
 
-    // Store the selected Pokemon in local storage
-    const pokemon = { name: imgName, imgUrl: imgUrl };
-    localStorage.setItem('selectedPokemon', JSON.stringify(pokemon));
+  // Retrieve the selected Pokemon array from local storage
+  const selectedPokemonsString = localStorage.getItem('selectedPokemons');
+  let selectedPokemons = [];
+  if (selectedPokemonsString) {
+    selectedPokemons = JSON.parse(selectedPokemonsString);
+  }
 
-  selectedPokemon.innerHTML = `
-    <div class="selectedlist">
-      <img src="${imgUrl}" alt="Pokemon">
-    </div>
-    <div class="display-text">
-      <p>${imgName}</p>
-    </div>
-  `;
+  // Add the new selected Pokemon to the array
+  const pokemon = { name: imgName, imgUrl: imgUrl };
+  selectedPokemons.push(pokemon);
+
+  // Store the updated selected Pokemon array in local storage
+  localStorage.setItem('selectedPokemons', JSON.stringify(selectedPokemons));
+
+  displaySelected(selectedPokemons);
 });
 
-// Get the selected Pokemon from local storage when the page loads
-document.addEventListener('DOMContentLoaded', function () {
-  const pokemonString = localStorage.getItem('selectedPokemon');
-  if (pokemonString) {
-    const pokemon = JSON.parse(pokemonString);
-    selectedPokemon.innerHTML = `
+// Display the selected Pokemon
+function displaySelected(selectedPokemons) {
+  const htmlTemplate = [];
+  for (const pokemon of selectedPokemons) {
+    htmlTemplate.push(`
       <div class="selectedlist">
         <img src="${pokemon.imgUrl}" alt="Pokemon">
-      </div>
-      <div class="display-text">
         <p>${pokemon.name}</p>
       </div>
-    `;
+    `);
   }
-});
 
-
-
-
-
-
-
-
-
-//release pokemon
-// const releasePokemon = document.getElementById('release')
-
-// releasePokemon.addEventListener('click', function (e) {
- 
-// }
-
-// )
+  selectedPokemon.innerHTML = htmlTemplate.join('');
+}
 
 
 
