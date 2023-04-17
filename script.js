@@ -105,12 +105,40 @@ async function fetchAbilityName(id, name) {
   </ul>
   </div>`)
 
-  $screen.innerHTML = details.join('')
+  $screen.innerHTML = details.join('');
+
+   // Store the selected Pokemon in local storage
+   const pokemon = { name: name, imgUrl: imgUrl, abilities: abilities };
+   localStorage.setItem('selectedPokemon', JSON.stringify(pokemon));
   
   selectPokemon.setAttribute('data-name', name)
   selectPokemon.setAttribute('data-poke-id', id)
   
 }
+
+//retrieve informations
+document.addEventListener('DOMContentLoaded', function () {
+  const pokemonString = localStorage.getItem('selectedPokemon');
+  if (pokemonString) {
+    const pokemon = JSON.parse(pokemonString);
+    const imgUrl = pokemon.imgUrl;
+    const name = pokemon.name;
+    const abilities = pokemon.abilities.map(ability => ability.ability.name).join(', ');
+    $screen.innerHTML = `
+      <div class="display-text">
+        <h3 class="px-2 bg-danger text-light text-uppercase">${name}</h3>
+      </div>
+      <div class="display-image">
+        <img src="${imgUrl}" alt="Pokemon">
+      </div>
+      <div class="display-text">
+        <h4 class="abilities">Abilities:</h4>
+        <p>${abilities}</p>
+      </div>
+    `;
+  }
+});
+
 
 //adds interactive scripts
 
