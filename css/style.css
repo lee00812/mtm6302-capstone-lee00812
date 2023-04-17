@@ -207,6 +207,11 @@ button {
     cursor: pointer;
 }
 
+.selectedlist p,
+.display-text ul li {
+    text-transform: capitalize;
+}
+
 @media only screen and (min-width: 980px) {
     .wrapper {
         display: grid;
