@@ -135,38 +135,57 @@ selectPokemon.addEventListener('click', function (e) {
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.target.dataset.pokeId}.png`;
   const imgName = e.target.dataset.name;
 
-  // Retrieve the selected Pokemon array from local storage
-  const selectedPokemonsString = localStorage.getItem('selectedPokemons');
-  let selectedPokemons = [];
-  if (selectedPokemonsString) {
-    selectedPokemons = JSON.parse(selectedPokemonsString);
-  }
-
-  // Add the new selected Pokemon to the array
   const pokemon = { name: imgName, imgUrl: imgUrl };
+  
+  // Check if there are already selected Pokemon in local storage
+  let selectedPokemons = JSON.parse(localStorage.getItem('selectedPokemons')) || [];
+
+  // Add the new Pokemon to the array of selected Pokemon
   selectedPokemons.push(pokemon);
 
-  // Store the updated selected Pokemon array in local storage
+  // Store the selected Pokemon in local storage
   localStorage.setItem('selectedPokemons', JSON.stringify(selectedPokemons));
 
+  // Display all selected Pokemon
   displaySelected(selectedPokemons);
 });
 
-// Display the selected Pokemon
+// Get the selected Pokemon from local storage when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const selectedPokemons = JSON.parse(localStorage.getItem('selectedPokemons')) || [];
+
+  // Display all selected Pokemon
+  displaySelected(selectedPokemons);
+});
+
+// Remove a selected Pokemon from local storage and update the display
+function releasePokemon(index) {
+  // Get the selected Pokemon from local storage
+  let selectedPokemons = JSON.parse(localStorage.getItem('selectedPokemons')) || [];
+
+  // Remove the selected Pokemon from the array
+  selectedPokemons.splice(index, 1);
+
+  // Update local storage with the new array
+  localStorage.setItem('selectedPokemons', JSON.stringify(selectedPokemons));
+
+  // Display all selected Pokemon
+  displaySelected(selectedPokemons);
+}
+
+// Display all selected Pokemon
 function displaySelected(selectedPokemons) {
   const htmlTemplate = [];
-  for (const pokemon of selectedPokemons) {
+  for (let i = 0; i < selectedPokemons.length; i++) {
+    const pokemon = selectedPokemons[i];
     htmlTemplate.push(`
       <div class="selectedlist">
         <img src="${pokemon.imgUrl}" alt="Pokemon">
         <p>${pokemon.name}</p>
+        <div class="releasebtn" onclick="releasePokemon(${i})">Release</div>
       </div>
     `);
   }
 
   selectedPokemon.innerHTML = htmlTemplate.join('');
 }
-
-
-
-  

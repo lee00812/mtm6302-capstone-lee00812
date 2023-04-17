@@ -132,7 +132,8 @@ h3 {
     font-size: 1.5rem;
 }
 
-.btn:hover {
+.btn:hover,
+.releasebtn:hover {
     background-color: #FF1200;
     color: white;
     transition-duration: 0.5s
@@ -162,12 +163,6 @@ button {
     grid-template-columns: auto auto auto auto;
     grid-gap: 5px;
 }
-
-/* #selectedwrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-} */
 
 .selectedpokemon {
     display: grid;
@@ -200,6 +195,17 @@ button {
     text-transform: capitalize;
 }
 
+.container {
+    padding-bottom: 40px;
+}
+
+.releasebtn {
+    background-color: #F85874;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 980px) {
     .wrapper {
         display: grid;
@@ -210,9 +216,15 @@ button {
         grid-template-columns: auto auto auto auto;
         grid-gap: 5px;
     }
+
+    .selectedpokemon {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 5px;
+    }
 }
 
-@media only screen and (min-width: 1688px) {
+@media only screen and (min-width: 1888px) {
     .wrapper {
         padding-left: 10%;
         padding-right: 10%;
@@ -221,6 +233,12 @@ button {
     #list {
         display: grid;
         grid-template-columns: auto auto auto auto auto;
+        grid-gap: 5px;
+    }
+
+    .selectedpokemon {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 5px;
     }
 }
