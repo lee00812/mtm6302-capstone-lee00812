@@ -168,6 +168,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
+    align-items: end;
 }
 
 .pokecontainer img {
@@ -221,6 +222,7 @@ button {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 5px;
+        align-items: end;
     }
 }
 
@@ -240,6 +242,7 @@ button {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 5px;
+        align-items: end;
     }
 }
 
@@ -261,6 +264,7 @@ button {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 5px;
+        align-items: end;
     }
 
     .btn {
