@@ -61,7 +61,6 @@ fetchData('https://pokeapi.co/api/v2/pokemon/');
     })
 
 //display pokemon's abilities
-
 //adds interactive scripts
 
 const $displayPokemon = document.querySelectorAll('#pokemon')
@@ -126,6 +125,10 @@ selectPokemon.addEventListener('click', function (e) {
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.target.dataset.pokeId}.png`;
   const imgName = e.target.dataset.name;
 
+    // Store the selected Pokemon in local storage
+    const pokemon = { name: imgName, imgUrl: imgUrl };
+    localStorage.setItem('selectedPokemon', JSON.stringify(pokemon));
+
   selectedPokemon.innerHTML = `
     <div class="selectedlist">
       <img src="${imgUrl}" alt="Pokemon">
@@ -136,25 +139,28 @@ selectPokemon.addEventListener('click', function (e) {
   `;
 });
 
-function displayPokemons(pokemons) {
-  
-  const htmlTemplate = [];
-  for (const pokemon of pokemons) {
-
-    const $img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + parseUrl(pokemon.url) + '.png'
-    const $id = parseUrl(pokemon.url)
-
-    htmlTemplate.push(
-      `
-      <div class="pokecontainer">
-      <img src="${$img}" data-id="${$id}" data-url="${$img}" data-name="${pokemon.name}"><li>${pokemon.name}</li>
+// Get the selected Pokemon from local storage when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const pokemonString = localStorage.getItem('selectedPokemon');
+  if (pokemonString) {
+    const pokemon = JSON.parse(pokemonString);
+    selectedPokemon.innerHTML = `
+      <div class="selectedlist">
+        <img src="${pokemon.imgUrl}" alt="Pokemon">
       </div>
-      `
-      );
+      <div class="display-text">
+        <p>${pokemon.name}</p>
+      </div>
+    `;
   }
+});
 
-  $users.innerHTML = htmlTemplate.join('');
-}
+
+
+
+
+
+
 
 
 //release pokemon
