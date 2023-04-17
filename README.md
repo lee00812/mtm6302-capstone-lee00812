@@ -25,7 +25,7 @@ HTML and CSS serve as the foundation for building a website, providing a clear a
 
 API Integration
 
-The PokeAPI was used to retrieve Pokemon data, including abilities and images, and to display this data in the application. This is challenging because we didn't spend much time in class to understand about connecting API. However, with the guidance of our professor, we were able to successfully implement this feature within a few days. 
+The PokeAPI was used to retrieve Pokemon data, including abilities and images, and to display this data in the application. This is challenging because we didn't spend much time in class to understand about connecting API. However, with the guidance of our professor, I was able to successfully implement this feature within a few days. 
 
 Interactive Scripts
 
@@ -37,7 +37,6 @@ Resources Used
 
 PokeAPI: used to retrieve Pokemon data
 JavaScript: javascript.info
-HTML and CSS: used for layout and styling
 
 
 
