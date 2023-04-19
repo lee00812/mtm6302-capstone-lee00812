@@ -5,6 +5,7 @@ body {
     background-image: url(/img/mountain.jpg);
     background-size: cover;
     background-color: #2dbdef;
+    background: linear-gradient(110deg, #2dbdef 60%, #60c5ef 60%);
 }
 
 header {
